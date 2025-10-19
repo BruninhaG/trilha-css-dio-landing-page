@@ -1,0 +1,202 @@
+/* styles.css
+   Paleta usada:
+   #ff00c1  #9600ff  #4900ff  #00b8ff  #00fff9
+*/
+:root{
+  --pink: #ff00c1;
+  --violet: #9600ff;
+  --indigo: #4900ff;
+  --cyan: #00b8ff;
+  --aqua: #00fff9;
+
+  --bg-gradient: linear-gradient(135deg, var(--pink) 0%, var(--violet) 30%, var(--indigo) 60%, var(--cyan) 90%);
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.08);
+  --text-strong: #0b0b12;
+  --muted: rgba(11,11,18,0.7);
+}
+
+/* Global reset + base */
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #0b0520 0%, #070516 40%, #050412 100%);
+  color: #fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+a{color:var(--aqua);text-decoration:underline}
+
+/* Header / Banner */
+.banner{
+  padding:64px 20px;
+  background: var(--bg-gradient);
+  position:relative;
+  overflow:hidden;
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  box-shadow: 0 8px 30px rgba(9,6,30,0.6);
+}
+.banner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(800px 250px at 10% 10%, rgba(255,255,255,0.06), transparent 10%), radial-gradient(500px 200px at 90% 90%, rgba(0,0,0,0.12), transparent 20%);
+  pointer-events:none;
+}
+.banner-content{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  gap:24px;
+  align-items:center;
+}
+.logo img{width:72px;height:72px;object-fit:contain;border-radius:12px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));padding:8px}
+
+.banner h1{
+  margin:0 0 8px 0;
+  font-size:clamp(20px, 4vw, 40px);
+  color: white;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+.banner p{
+  margin:0 0 16px 0;
+  max-width:720px;
+  color: rgba(255,255,255,0.95);
+}
+
+.banner button{
+  border:0;
+  padding:12px 20px;
+  font-weight:600;
+  cursor:pointer;
+  border-radius:12px;
+  background: linear-gradient(90deg, var(--aqua), var(--cyan));
+  color: #001022;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.05) inset;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .12s;
+}
+.banner button:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,0.45)}
+
+/* Main */
+main{max-width:1100px;margin:36px auto;padding:0 20px;}
+
+section{margin-bottom:28px}
+
+#course-content h2{color:var(--pink);margin:8px 0 12px;font-size:1.6rem}
+#course-content p{color:var(--muted);max-width:70ch}
+
+.modules-list{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+  margin-top:18px;
+}
+.module{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:14px;
+  padding:16px;
+  box-shadow: 0 8px 22px rgba(9,6,30,0.45);
+  border:1px solid rgba(255,255,255,0.04);
+  display:flex;align-items:center;gap:12px;font-weight:600;
+}
+.module span{display:inline-block;min-width:110px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--pink),var(--violet));color:white;font-weight:700}
+
+/* Transform world CTA */
+#transform-world{
+  margin:36px 0;
+  padding:28px;
+  border-radius:14px;
+  background: linear-gradient(90deg, rgba(73,0,255,0.06), rgba(0,184,255,0.04));
+  text-align:center;
+  font-weight:800;
+  letter-spacing:2px;
+  color:transparent;
+  -webkit-background-clip:text;
+  background-clip:text;
+  background-image: linear-gradient(90deg, var(--pink), var(--violet), var(--indigo), var(--cyan));
+}
+
+/* Professional challenges */
+#professional-challenges {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+#professional-challenges h2 {
+  margin-top: 0;
+  color: var(--violet);
+}
+
+#professional-challenges p {
+  color: #fff;
+  max-width: 700px;
+}
+
+#professional-challenges img {
+  width: 100%;
+  max-width: 700px; /* limite de largura para não estourar */
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(4,6,20,0.6);
+  /* border: 1px solid rgba(255,255,255,0.04); */
+
+  animation: fadeUpImg 0.9s ease-in-out both;
+}
+
+@keyframes fadeUpImg {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* começa um pouco abaixo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* volta à posição normal */
+  }
+}
+
+/* Footer */
+footer{
+  margin-top:36px;
+  padding:22px 20px;
+  display:flex;gap:12px;align-items:center;justify-content:center;flex-direction:column;
+  color:rgba(255,255,255,0.8);
+}
+footer .dio-logo{height:48px;object-fit:contain}
+footer p{margin:6px 0 0 0}
+
+/* Decorative accent - floating gradient circles */
+@media (min-width:900px){
+  .banner::before{
+    content:"";
+    position:absolute;
+    right:-120px;top:-80px;width:420px;height:420px;border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, var(--pink), transparent 40%), radial-gradient(circle at 70% 70%, var(--aqua), transparent 45%);
+    filter:blur(28px);opacity:.28;pointer-events:none;transform:rotate(12deg);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .banner-content{flex-direction:column;align-items:flex-start}
+  #professional-challenges{grid-template-columns:1fr;}
+  footer{padding-bottom:36px}
+}
+
+/* Small utilities */
+.center{display:flex;align-items:center;justify-content:center}
+
+/* Accessibility: focus outlines */
+button:focus, a:focus{outline:3px solid rgba(0,255,249,0.14);outline-offset:3px}
+
+/* subtle entrance animation */
+.banner-content, main, footer{animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
